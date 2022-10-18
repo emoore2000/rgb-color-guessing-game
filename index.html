@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hex Color Guessing Game!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="game-start">Click here to start the game!</div>
+  <div class="play-again hidden">Play again?</div>
+
+  <div class="game-container">
+    <div class="color-box"></div>
+    <div class="select-prompt hidden">v &nbsp;&nbsp;&nbsp;Make your best guess!&nbsp;&nbsp;&nbsp; v</div>
+
+    <div class="option-container">
+      <button class="option one">
+        <div class="button-title">RGB</div>
+        <div class="rgb-values">(0, 0, 0)</div>
+        <div class="mask"></div>
+      </button>
+      <button class="option two">
+        <div class="button-title">RGB</div>
+        <div class="rgb-values">(0, 0, 0)</div>
+        <div class="mask"></div>
+      </button>
+      <button class="option three">
+        <div class="button-title">RGB</div>
+        <div class="rgb-values">(0, 0, 0)</div>
+        <div class="mask"></div>
+      </button>
+    </div>
+  </div>
+
+  <div class="correct hidden">Correct!</div>
+  <div class="incorrect hidden">Incorrect... Try again.</div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

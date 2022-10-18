@@ -1,0 +1,127 @@
+:root {
+  --main-color: rgb(212, 212, 212);
+  --bg-color: rgb(36, 36, 36);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  font-family: sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-start,
+.play-again {
+  font-size: 1.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+  height: 0;
+  position: relative;
+  bottom: 40px;
+  transition: .3s;
+}
+
+.game-start:hover,
+.play-again:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.game-container {
+  width: 600px;
+  height: 500px;
+  background-color: rgb(94, 94, 94);
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.color-box {
+  width: 80%;
+  height: 60%;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 20px auto 55px;
+  background-color: #000000;
+}
+
+.option-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.option {
+  padding: 10px;
+  width: 175px;
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  border: 5px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+}
+
+.button-title {
+  font-size: 1.5rem;
+}
+
+.rgb-values {
+  font-size: 1.3rem;
+}
+
+.option:hover {
+  transform: translateY(-3px);
+}
+
+.mask {
+  width: 103%;
+  height: 106%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+
+.select-prompt {
+  font-size: 1.5rem;
+  text-align: center;
+  height: 0;
+  position: relative;
+  top: -35px;
+  animation: bounce;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.correct,
+.incorrect {
+  font-size: 1.5rem;
+  height: 0;
+}
+
+.correct {
+  color: limegreen;
+}
+
+.incorrect {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
