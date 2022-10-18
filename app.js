@@ -63,6 +63,10 @@ function game() {
         options[i].removeEventListener('click', check);
       }
 
+      for (let i = 0; i < options.length; i++) {
+        options[i].style.borderColor = `rgb(${values[i][0]}, ${values[i][1]}, ${values[i][2]})`;
+      }
+
       playAgainBtn.classList.remove('hidden');
       selectPrompt.classList.add('hidden');
       correctPrompt.classList.remove('hidden');
