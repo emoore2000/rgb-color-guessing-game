@@ -34,7 +34,7 @@ function game() {
   } else {
     answer = 'three';
   }
-  console.log(answer);
+  // console.log(answer);
 
   for (i in optionsColors) {
     optionsColors[i].innerText = `(${values[i][0]}, ${values[i][1]}, ${values[i][2]})`;
@@ -53,10 +53,10 @@ function game() {
       selectedClassNum = 2;
     }
 
-    console.log(selected);
-    console.log(selectedClassName);
+    // console.log(selected);
+    // console.log(selectedClassName);
     selected.style.borderColor = `rgb(${values[selectedClassNum][0]}, ${values[selectedClassNum][1]}, ${values[selectedClassNum][2]})`;
-    console.log(answer);
+    // console.log(answer);
 
     if (selectedClassName === answer) {
       for (let i = 0; i < options.length; i++) {
