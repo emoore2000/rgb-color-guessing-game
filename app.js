@@ -1,3 +1,5 @@
+// Variables so I don't have a document.querySelector mess throughout my code.
+
 const panel = document.querySelector('.color-box');
 const options = document.querySelectorAll('.option');
 const optionsColors = document.querySelectorAll('.rgb-values');
@@ -6,6 +8,11 @@ const playAgainBtn = document.querySelector('.play-again');
 const selectPrompt = document.querySelector('.select-prompt');
 const correctPrompt = document.querySelector('.correct')
 const incorrectPrompt = document.querySelector('.incorrect')
+const currentScore = document.querySelector('.current-score');
+const highScore = document.querySelector('.high-score');
+let currentScoreCount = 0;
+let highScoreCount = 0;
+let incorrect = false;
 
 startGameBtn.addEventListener('click', game);
 playAgainBtn.addEventListener('click', game);
@@ -17,6 +24,9 @@ function game() {
   playAgainBtn.classList.add('hidden');
   selectPrompt.classList.remove('hidden')
   correctPrompt.classList.add('hidden');
+  currentScore.classList.remove('hidden')
+  highScore.classList.remove('hidden')
+  incorrect = false;
 
   for (let i = 0; i < options.length; i++) {
     options[i].style.borderColor = 'black'
@@ -34,7 +44,8 @@ function game() {
   } else {
     answer = 'three';
   }
-  // console.log(answer);
+
+  console.log(answer);
 
   for (i in optionsColors) {
     optionsColors[i].innerText = `(${values[i][0]}, ${values[i][1]}, ${values[i][2]})`;
@@ -53,10 +64,7 @@ function game() {
       selectedClassNum = 2;
     }
 
-    // console.log(selected);
-    // console.log(selectedClassName);
     selected.style.borderColor = `rgb(${values[selectedClassNum][0]}, ${values[selectedClassNum][1]}, ${values[selectedClassNum][2]})`;
-    // console.log(answer);
 
     if (selectedClassName === answer) {
       for (let i = 0; i < options.length; i++) {
@@ -67,12 +75,28 @@ function game() {
         options[i].style.borderColor = `rgb(${values[i][0]}, ${values[i][1]}, ${values[i][2]})`;
       }
 
+      if (!incorrect) {
+        currentScoreCount++;
+
+        if (currentScoreCount > highScoreCount) {
+          highScoreCount = currentScoreCount;
+        }
+      }
+
+      currentScore.innerHTML = `Current score:<br>${currentScoreCount}`;
+      highScore.innerHTML = `High score:<br>${highScoreCount}`;
+
       playAgainBtn.classList.remove('hidden');
       selectPrompt.classList.add('hidden');
       correctPrompt.classList.remove('hidden');
       incorrectPrompt.classList.add('hidden');
     } else {
       incorrectPrompt.classList.remove('hidden');
+
+      incorrect = true;
+
+      currentScoreCount = 0;
+      currentScore.innerHTML = `Current score:<br>${currentScoreCount}`;
     }
 
   }
@@ -94,3 +118,5 @@ function generateRGBValues() {
 
   return values;
 }
+
+// Add scoring system
