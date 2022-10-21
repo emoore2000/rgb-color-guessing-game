@@ -141,4 +141,26 @@ body {
   display: none;
 }
 
-/* Make game responsive to mobile */
+@media(max-width: 614px) {
+  .game-container {
+    width: 95%;
+  }
+
+  .color-box {
+    height: 30%;
+  }
+
+  .option-container {
+    flex-wrap: wrap;
+  }
+
+  .option {
+    margin: 10px;
+  }
+}
+
+@media(max-width: 410px) {
+  .game-container {
+    height: 600px;
+  }
+}
