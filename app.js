@@ -130,6 +130,24 @@ function game() {
 
 
 
+// function generateRGBValues() {
+//   // Initializes array with 3 rows.
+//   let values = [
+//     [],
+//     [],
+//     []
+//   ];
+
+//   // Populates a 3x3 array with random numbers from 0 to 255.
+//   for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//       values[i][j] = Math.floor(Math.random() * 256);
+//     }
+//   }
+
+//   return values;
+// }
+
 function generateRGBValues() {
   // Initializes array with 3 rows.
   let values = [
@@ -138,18 +156,24 @@ function generateRGBValues() {
     []
   ];
 
-  // Populates a 3x3 array with random numbers from 0 to 255.
+  // Populates first row of the array with random numbers from 0 to 255.
   for (let i = 0; i < 3; i++) {
+    values[0][i] = Math.floor(Math.random() * 256);
+  }
+
+  // Populates second and third rows according to the previous values to prevent answer choices from being too similar.
+  for (i = 1; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      values[i][j] = Math.floor(Math.random() * 256);
+      let num = values[i - 1][j];
+      num += Math.floor(Math.random() * 50 + 51);
+
+      // Resets num back to 0 if it goes above 255.
+      if (num > 255) {
+        num = num - 255;
+      }
+      values[i][j] = num;
     }
   }
 
   return values;
 }
-
-// Make sure no two options will be too close. Generate furst set of random numbers, then change others randomly according to the first set?
-// 20, 20, 20 for example, add 50 - 100 randomly to each value for second set, then add 50 - 100 more to the last set.
-// Make sure to reset value back to 0 if it goes above 255, then add remaining.
-
-// Make game responsive to mobile first!
