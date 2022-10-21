@@ -3,6 +3,10 @@
   --bg-color: rgb(36, 36, 36);
 }
 
+* {
+  /* box-sizing: border-box; */
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--main-color);
@@ -141,7 +145,7 @@ body {
   display: none;
 }
 
-@media(max-width: 614px) {
+/* @media(max-width: 614px) {
   .game-container {
     width: 95%;
   }
@@ -160,6 +164,30 @@ body {
 }
 
 @media(max-width: 410px) {
+  .game-container {
+    height: 600px;
+  }
+} */
+
+@media(max-aspect-ratio: 614/937) {
+  .game-container {
+    width: 95%;
+  }
+
+  .color-box {
+    height: 30%;
+  }
+
+  .option-container {
+    flex-wrap: wrap;
+  }
+
+  .option {
+    margin: 10px;
+  }
+}
+
+@media(max-aspect-ratio: 420/937) {
   .game-container {
     height: 600px;
   }
